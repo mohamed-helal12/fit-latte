@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juhayna Fit Latte - Marketing Plan 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #3E2723;
+            --primary-light: #5D4037;
+            --secondary: #FF6F00;
+            --accent: #7CB342;
+            --gold: #F9A825;
+            --bg-light: #FFF3E0;
+            --bg-white: #FFFFFF;
+            --text-dark: #1a1a2e;
+            --text-gray: #555;
+            --gradient-1: linear-gradient(135deg, #3E2723 0%, #5D4037 50%, #6D4C41 100%);
+            --gradient-2: linear-gradient(135deg, #1a1a2e 0%, #3E2723 100%);
+            --gradient-3: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            --gradient-orange: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+            --shadow: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-sm: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            background: #0a0a0a;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 60px;
+            padding-right: 100px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        .slide-title-bg {
+            background: var(--gradient-2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-title-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -30%;
+            width: 80%; height: 200%;
+            background: radial-gradient(ellipse, rgba(255,111,0,0.15) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .slide-title-bg::after {
+            content: '☕';
+            position: absolute;
+            bottom: 30px; right: 110px;
+            font-size: 80px;
+            opacity: 0.1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .slide-white { background: var(--gradient-3); }
+        .slide-orange { background: var(--gradient-orange); }
+        .slide-dark { background: var(--gradient-2); }
+        .slide-coffee { background: linear-gradient(135deg, #4E342E 0%, #3E2723 100%); }
+
+        .slide-number {
+            position: absolute;
+            top: 25px; right: 100px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .slide-white .slide-number { color: rgba(0,0,0,0.3); }
+
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--text-dark);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .slide-white .badge {
+            background: var(--primary);
+            color: white;
+        }
+
+        .slide-orange .badge,
+        .slide-coffee .badge {
+            background: white;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 3.2em;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .slide-title-bg h1, .slide-dark h1, .slide-orange h1, .slide-coffee h1 { color: white; }
+        .slide-title-bg h2, .slide-dark h2, .slide-orange h2, .slide-coffee h2 { color: rgba(255,255,255,0.9); }
+        .slide-title-bg p, .slide-dark p, .slide-orange p, .slide-coffee p { color: rgba(255,255,255,0.8); }
+        .slide-white h1, .slide-white h2 { color: var(--primary); }
+        .slide-white h3 { color: var(--text-dark); }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .content-wrapper.center { text-align: center; }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .slide-dark .card, .slide-orange .card, .slide-coffee .card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .card-icon { font-size: 2.2em; margin-bottom: 10px; }
+
+        .card h4 {
+            font-size: 1em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .slide-dark .card h4, .slide-orange .card h4, .slide-coffee .card h4 { color: var(--gold); }
+
+        .card p, .card li {
+            font-size: 0.85em;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .slide-dark .card p, .slide-dark .card li,
+        .slide-orange .card p, .slide-orange .card li,
+        .slide-coffee .card p, .slide-coffee .card li {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.85em;
+        }
+
+        .styled-table thead tr {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .styled-table th {
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .styled-table td {
+            padding: 12px 18px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .styled-table tbody tr {
+            background: white;
+            transition: background 0.2s;
+        }
+
+        .styled-table tbody tr:hover { background: #FFF3E0; }
+        .styled-table tbody tr:last-child td { border-bottom: none; }
+
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .swot-card {
+            padding: 22px;
+            border-radius: 16px;
+            color: white;
+        }
+
+        .swot-card h4 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: white !important;
+        }
+
+        .swot-card ul { list-style: none; padding: 0; }
+
+        .swot-card li {
+            padding: 4px 0;
+            font-size: 0.82em;
+            color: rgba(255,255,255,0.9) !important;
+        }
+
+        .swot-strengths { background: linear-gradient(135deg, #2E7D32, #43A047); }
+        .swot-weaknesses { background: linear-gradient(135deg, #C62828, #E53935); }
+        .swot-opportunities { background: linear-gradient(135deg, #1565C0, #1E88E5); }
+        .swot-threats { background: linear-gradient(135deg, #E65100, #F57C00); }
+
+        .position-map {
+            width: 380px;
+            height: 380px;
+            position: relative;
+            border-left: 3px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
+            margin: 20px auto;
+            background: rgba(255,255,255,0.5);
+            border-radius: 0 0 12px 0;
+        }
+
+        .position-map .axis-label {
+            position: absolute;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .position-map .y-label { top: -25px; left: 50%; transform: translateX(-50%); }
+        .position-map .x-label { bottom: -28px; right: -10px; }
+        .position-map .x-label-left { bottom: -28px; left: -10px; }
+
+        .map-point {
+            position: absolute;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .map-point:hover { transform: scale(1.15); }
+
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 14px 16px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            flex: 1;
+            min-width: 140px;
+            max-width: 180px;
+            transition: transform 0.3s;
+        }
+
+        .flow-step:hover { transform: translateY(-3px); }
+
+        .flow-step .step-num {
+            width: 28px; height: 28px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+
+        .flow-step h5 {
+            font-size: 0.78em;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .flow-step p {
+            font-size: 0.68em;
+            color: var(--text-gray);
+        }
+
+        .flow-arrow {
+            font-size: 1.3em;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .persona-card {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+            max-width: 280px;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .persona-avatar {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+        }
+
+        .persona-card h4 { color: var(--primary); margin-bottom: 4px; font-size: 0.95em; }
+
+        .persona-card .persona-type {
+            color: var(--secondary);
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .persona-card .persona-detail {
+            font-size: 0.75em;
+            color: var(--text-gray);
+            padding: 2px 0;
+        }
+
+        .persona-card .persona-quote {
+            background: var(--bg-light);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 0.75em;
+            margin-top: 10px;
+            color: var(--text-dark);
+        }
+
+        .product-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .product-item {
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .product-item:hover { transform: scale(1.1); }
+
+        .product-box {
+            width: 110px; height: 170px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-box::before {
+            
+            position: absolute;
+            top: 8px; left: 8px;
+            font-size: 14px;
+        }
+
+        .product-box .product-emoji { font-size: 2.3em; margin-bottom: 5px; }
+
+        .product-box .product-name {
+            font-size: 0.65em;
+            font-weight: 700;
+            color: white;
+            background: rgba(0,0,0,0.2);
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        .product-label {
+            font-size: 0.8em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-price {
+            font-size: 0.75em;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        .product-price-old {
+            font-size: 0.65em;
+            color: #999;
+            text-decoration: line-through;
+            margin-top: 2px;
+        }
+
+        .product-price-new {
+            font-size: 0.8em;
+            color: var(--secondary);
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .product-protein {
+            font-size: 0.65em;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            margin: 25px 0;
+            padding: 0 10px;
+            width: 100%;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%; right: 10%;
+            height: 4px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 700;
+            box-shadow: 0 0 0 5px rgba(255,111,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover .timeline-dot { transform: scale(1.2); }
+
+        .timeline-item h5 {
+            font-size: 0.78em;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .timeline-item p {
+            font-size: 0.68em;
+            color: var(--text-gray);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .kpi-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s;
+        }
+
+        .kpi-card:hover { transform: translateY(-5px); }
+
+        .kpi-value {
+            font-size: 2em;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+
+        .kpi-label { font-size: 0.78em; color: var(--text-gray); }
+        .kpi-icon { font-size: 1.8em; }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            height: 200px;
+            margin: 15px 0;
+            padding: 0 20px;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 80px;
+        }
+
+        .bar {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            min-height: 10px;
+            position: relative;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -22px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .bar-label {
+            margin-top: 8px;
+            font-size: 0.68em;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .nav-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 70px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gradient-orange);
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(255,111,0,0.5);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .slide-counter-vertical {
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 2px;
+        }
+
+        .nav-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .nav-dot.active {
+            background: var(--gold);
+            transform: scale(1.4);
+            box-shadow: 0 0 8px rgba(249,168,37,0.5);
+        }
+
+        .nav-dot:hover { background: rgba(255,255,255,0.6); }
+
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 4px;
+            background: var(--gradient-orange);
+            transition: width 0.4s ease;
+            z-index: 1001;
+        }
+
+        .highlight { color: var(--gold); font-weight: 700; }
+        .slide-white .highlight { color: var(--secondary); }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .tag-green { background: #E8F5E9; color: #2E7D32; }
+        .tag-blue { background: #E3F2FD; color: #1565C0; }
+        .tag-orange { background: #FFF3E0; color: #E65100; }
+        .tag-red { background: #FFEBEE; color: #C62828; }
+        .tag-purple { background: #F3E5F5; color: #6A1B9A; }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .two-cols-60-40 {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 30px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .quote-box {
+            background: rgba(255,111,0,0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 1em;
+            color: var(--text-dark);
+        }
+
+        .slide-dark .quote-box,
+        .slide-coffee .quote-box,
+        .slide-orange .quote-box {
+            background: rgba(255,255,255,0.1);
+            border-left-color: var(--gold);
+            color: white;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .stat-box {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            min-width: 120px;
+        }
+
+        .stat-row1 {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .stat-box1 {
+            background: rgb(221, 147, 147);
+            border-radius: 12px;
+            padding: 15px 25px;
+            text-align: center;
+            
+            min-width: 120px;
+        }
+        .slide-dark .stat-box,
+        .slide-coffee .stat-box,
+        .slide-orange .stat-box {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .stat-box .stat-num {
+            font-size: 1.8em;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .slide-dark .stat-box .stat-num,
+        .slide-coffee .stat-box .stat-num,
+        .slide-orange .stat-box .stat-num { color: var(--gold); }
+
+        .stat-box .stat-text { font-size: 0.72em; color: var(--text-gray); }
+        .slide-dark .stat-box .stat-text,
+        .slide-coffee .stat-box .stat-text,
+        .slide-orange .stat-box .stat-text { color: rgba(255,255,255,0.7); }
+
+        .section-divider {
+            width: 80px; height: 4px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+            margin: 10px 0 20px;
+        }
+
+        .center .section-divider { margin: 10px auto 20px; }
+
+        .slide-dark .section-divider,
+        .slide-coffee .section-divider,
+        .slide-orange .section-divider { background: var(--gold); }
+
+        .keyboard-hint {
+            position: fixed;
+            top: 20px; left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            z-index: 1001;
+            transition: opacity 1s;
+        }
+
+        .keyboard-hint.hidden { opacity: 0; pointer-events: none; }
+
+        .executive-summary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .executive-summary h3 {
+            color: var(--gold);
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .executive-summary ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .executive-summary li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .executive-summary li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: #C62828;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 700;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .price-badge-promo {
+            background: #2E7D32;
+        }
+
+        @media (max-width: 768px) {
+            .slide { padding: 20px 25px; padding-right: 70px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .two-cols, .two-cols-60-40 { grid-template-columns: 1fr; }
+            .swot-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .flow-chart { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); }
+            .product-showcase { gap: 12px; }
+            .product-box { width: 80px; height: 130px; }
+            .position-map { width: 280px; height: 280px; }
+            .bar-chart { gap: 10px; height: 150px; }
+            .timeline { flex-direction: column; gap: 15px; }
+            .timeline::before { display: none; }
+            .nav-sidebar { width: 55px; }
+            .nav-dots { display: none; }
+        }
+
+        /* ===== FULL IMAGE SLIDE STYLES ===== */
+
+.slide-image-only {
+    padding: 0 !important;
+    background: #000;
+    overflow: hidden;
+}
+
+.full-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* أو cover حسب رغبتك */
+    object-position: center;
+    display: block;
+}
+
+
+
+@keyframes imageZoomIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Optional: إذا كنت تريد الصورة تملأ الشاشة بالكامل */
+.full-slide-image-cover {
+    object-fit: cover !important;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="keyboard-hint" id="keyboardHint">Use ↑ ↓ arrow keys or side buttons to navigate</div>
+
+    <div class="presentation" id="presentation">
+
+
+        <!-- SLIDE 1: FULL IMAGE ONLY -->
+        <div class="slide slide-image-only active" data-slide="0">
+            <img src="images/image1.jpg" 
+                 alt="Juhayna Fit Latte" 
+                 class="full-slide-image" 
+                 style="object-fit: contain; background: #000;">
+        </div>
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide slide-title-bg active" data-slide="0">
+            <div class="content-wrapper center">
+                <h2 style="font-weight:400; font-size:2em;">Arab Academy for Science, Technology and Maritime Transport</h2>
+                <h2 style="font-weight:400; font-size:2em;">Marketing Management</h2>
+                <p class="subtitle">A Marketing Plan for the Egyptian Market</p>
+                <div class="section-divider" style="margin:20px auto;"></div>
+                <div style="font-size:4em; margin-bottom:15px;">☕💪🌿</div>
+                <h1>Juhayna Fit Latte</h1>
+                <p style="font-size:1.1em; margin:10px 0; opacity:0.9;">Energetic Iced Coffee with Plant-Based Milk</p>
+                
+                
+            </div>
+             <div class="stat-row1" style="margin-top:10px;">
+                <div class="stat-box1"><div class="stat-num">Hany Assaf</div></div>
+                <div class="stat-box1"><div class="stat-num">Rana Hossam</div></div>
+                <div class="stat-box1"><div class="stat-num">Mahmoud Saeed</div></div>
+              
+             </div>
+             <div class="stat-row1" style="margin-top:10px;">
+              
+                <div class="stat-box1"><div class="stat-num">Rania Roushdy</div></div>
+                <div class="stat-box1"><div class="stat-num">Omar Tarek</div></div>
+                <div class="stat-box1"><div class="stat-num">Heba Adel</div></div>
+             </div>
+            
+            <div class="slide-number">01 / 22</div>
+        </div>
+
+        <!-- SLIDE 2: EXECUTIVE SUMMARY -->
+        <div class="slide slide-coffee" data-slide="1">
+            <div class="content-wrapper">
+                <div class="badge">📋 Executive Summary</div>
+                <h2>Strategic Overview</h2>
+                <div class="section-divider"></div>
+                <div class="executive-summary">
+                    <h3>🎯 The Opportunity</h3>
+                    <ul>
+                        <li>Egypt's RTD protein coffee market is virtually empty - zero quality local products</li>
+                        <li>Growing fitness culture with 500+ new gyms opened in 2 years</li>
+                        <li>Busy professionals seeking convenient, healthy nutrition solutions</li>
+                        <li>Imported products priced 100-150 EGP - unaffordable for most consumers</li>
+                    </ul>
+                </div>
+                <div class="executive-summary">
+                    <h3>💡 Our Solution</h3>
+                    <ul>
+                        <li><strong>Juhayna Fit Latte</strong> - Egypt's first plant-based protein iced coffee</li>
+                        <li>15-25g protein per bottle at 69-115 EGP (40% cheaper than imports)</li>
+                        <li>Ready-to-drink convenience for gym-goers and busy professionals</li>
+                        <li>Leveraging Juhayna's trusted brand and massive distribution network</li>
+                    </ul>
+                </div>
+                <div class="two-cols" style="margin-top:15px;">
+                    <div class="executive-summary">
+                        <h3>📈 Key Objectives (Year 1)</h3>
+                        <ul>
+                            <li>30% brand awareness</li>
+                            <li>1.8M bottles sold</li>
+                            <li>130M EGP revenue</li>
+                            <li>500+ distribution points</li>
+                        </ul>
+                    </div>
+                    <div class="executive-summary">
+                        <h3>🎯 Strategy</h3>
+                        <ul>
+                            <li>Price Skimming Strategy</li>
+                            <li>Premium Positioning</li>
+                            <li>Digital-First Marketing</li>
+                            <li>Gym & Café Partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">02 / 22</div>
+        </div>
+
+        <!-- SLIDE 3: AGENDA -->
+        <div class="slide slide-white" data-slide="2">
+            <div class="content-wrapper">
+                <div class="badge">📋 Agenda</div>
+                <h2>Marketing Plan Overview</h2>
+                <div class="section-divider"></div>
+                <div class="cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="card" style="border-top:4px solid #3E2723;">
+                        <div class="card-icon">📦</div>
+                        <h4>Product Overview</h4>
+                        <p>Fit Latte concept<br>USP & positioning</p>
+                    </div>
+                    <div class="card" style="border-top:4px solid #1565C0;">
+                        <div class="card-icon">🔍</div>
+                        <h4>Market Analysis</h4>
+                        <p>Industry trends<br>Competition & SWOT</p>
+                    </div>
+                    <div class="card" style="border-top:4px solid #FF6F00;">
+                        <div class="card-icon">🎯</div>
+                        <h4>Strategy</h4>
+                        <p>STP & Objectives<br>Growth strategy</p>
+                    </div>
+                    <div class="card" style="border-top:4px solid #2E7D32;">
+                        <div class="card-icon">🚀</div>
+                        <h4>Marketing Mix</h4>
+                        <p>4Ps & Digital plan<br>Implementation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">03 / 22</div>
+        </div>
+
+        <!-- SLIDE 4: PRODUCT OVERVIEW -->
+        <div class="slide slide-dark" data-slide="3">
+            <div class="content-wrapper center">
+                <div class="badge">📦 Product Overview</div>
+                <h2>Juhayna Fit Latte - What We Offer</h2>
+                <div class="section-divider"></div>
+                <div class="quote-box" style="max-width:700px; margin:0 auto 25px; font-size:1.05em;">
+                    <strong>Product Concept:</strong><br>
+                    "Egypt's first ready-to-drink plant-based protein iced coffee - combining great coffee taste with muscle-building nutrition in a convenient grab-and-go format"
+                </div>
+                <div class="cards-grid" style="grid-template-columns: repeat(5,1fr);">
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">☕</div>
+                        <h4>Premium Coffee</h4>
+                        <p>Made with 100% Egyptian Arabica beans</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">💪</div>
+                        <h4>High Protein</h4>
+                        <p>15-25g plant protein per bottle</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">🌱</div>
+                        <h4>Plant-Based</h4>
+                        <p>Oat, almond, coconut milk base</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">⚡</div>
+                        <h4>Low Calorie</h4>
+                        <p>Only 150-200 calories</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">🚫</div>
+                        <h4>Lactose-Free</h4>
+                        <p>Perfect for intolerant consumers</p>
+                    </div>
+                </div>
+                <div class="stat-row" style="margin-top:25px;">
+                    <div class="stat-box"><div class="stat-num">330ml</div><div class="stat-text">Perfect Size</div></div>
+                    <div class="stat-box"><div class="stat-num">69-79</div><div class="stat-text">EGP Price</div></div>
+                    <div class="stat-box"><div class="stat-num">5</div><div class="stat-text">Flavors</div></div>
+                </div>
+            </div>
+            <div class="slide-number">04 / 22</div>
+        </div>
+
+        <!-- SLIDE 5: PRODUCT LINE WITH NEW PRICING -->
+        <!-- SLIDE 5: PRODUCT LINE WITH IMAGES -->
+<div class="slide slide-white" data-slide="4">
+    <div class="content-wrapper center">
+        <div class="badge">📦 Product Portfolio & Pricing Strategy</div>
+        <h2>Juhayna Fit Latte - Product Line</h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--text-gray); margin-bottom:15px; font-size:0.95em;">
+            <strong>Pricing Strategy:</strong> <span style="color:var(--secondary);">Price Skimming</span> - Launch premium, reduce gradually for market expansion
+        </p>
+        <div class="product-showcase">
+            <!-- Product 1: Classic Espresso -->
+            <div class="product-item">
+                 <div class="product-box product-box-with-image">
+                    <img src="images/classic-espresso.jpg" alt="Classic Espresso" class="product-bg-image">
+                    <div class="product-overlay"></div>
+                    
+                </div>
+                <div class="product-label">Classic Espresso</div>
+                <div class="product-protein">20g Protein</div>
+                <div class="product-price-new">40 EGP</div>
+            </div>
+
+            <!-- Product 2: Mocha -->
+            <div class="product-item">
+                <div class="product-box product-box-with-image">
+                    <img src="images/mocha.jpg" alt="Classic Espresso" class="product-bg-image">
+                    <div class="product-overlay"></div>
+                    
+                </div>
+                <div class="product-label">Chocolate Coffee</div>
+                <div class="product-protein">20g Protein</div>
+                <div class="product-price-new">45 EGP</div>
+            </div>
+
+            <!-- Product 3: Caramel -->
+            <div class="product-item">
+                <div class="product-box" style="background: linear-gradient(135deg, #BF8040, #D4A574); position: relative; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=600&fit=crop" 
+                         alt="Caramel Macchiato" 
+                         style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.3;">
+                    
+                </div>
+                <div class="product-label">Caramel Macchiato</div>
+                <div class="product-protein">20g Protein</div>
+                <div class="product-price-new">45 EGP</div>
+            </div>
+
+            <!-- Product 4: Vanilla -->
+            <div class="product-item">
+                <div class="product-box" style="background: linear-gradient(135deg, #FFF8DC, #FAEBD7); position: relative; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1568046219846-7748b025eb29?w=400&h=600&fit=crop" 
+                         alt="Vanilla Latte" 
+                         style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.4;">
+                    
+                </div>
+                <div class="product-label">Vanilla Latte</div>
+                <div class="product-protein">15g Protein</div>
+                <div class="product-price-new">45 EGP</div>
+            </div>
+
+            <!-- Product 5: Pro -->
+            <div class="product-item">
+                <div class="product-box" style="background: linear-gradient(135deg, #1a1a2e, #3E2723); border:3px solid #FF6F00; position: relative; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=600&fit=crop" 
+                         alt="Pro Double Protein" 
+                         style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.3;">
+                    
+                </div>
+                <div class="product-label">Double Protein</div>
+                <div class="product-protein">40g Protein</div>
+                <div class="product-price-new">80 EGP</div>
+            </div>
+        </div>
+        
+        <div class="stat-row" style="margin-top:20px;">
+            <div class="stat-box"><div class="stat-num" style="font-size:1.2em;">🌱</div><div class="stat-text">100% Plant-Based</div></div>
+            <div class="stat-box"><div class="stat-num" style="font-size:1.2em;">💪</div><div class="stat-text">Pea + Oat Protein</div></div>
+            <div class="stat-box"><div class="stat-num" style="font-size:1.2em;">♻️</div><div class="stat-text">Recyclable Bottle</div></div>
+            <div class="stat-box"><div class="stat-num" style="font-size:1.2em;">🏆</div><div class="stat-text">Premium Quality</div></div>
+        </div>
+    </div>
+    <div class="slide-number">05 / 22</div>
+</div>
+
+        <!-- SLIDE 6: USP & POSITIONING -->
+        <div class="slide slide-coffee" data-slide="5">
+            <div class="content-wrapper center">
+                <div class="badge">⭐ Unique Value</div>
+                <h2>USP & Brand Positioning</h2>
+                <div class="section-divider"></div>
+                <div class="quote-box" style="max-width:850px; margin:0 auto 25px; font-size:1.15em;">
+                    <strong>Positioning Statement:</strong><br>
+                    "For health-conscious Egyptians aged 18-40 who want convenient nutrition without compromising taste, Juhayna Fit Latte is the first locally-made plant-based protein iced coffee that delivers 15-25g of protein in a delicious grab-and-go format at half the price of imported alternatives."
+                </div>
+                <div class="cards-grid" style="grid-template-columns: repeat(5,1fr);">
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">🇪🇬</div>
+                        <h4>Made in Egypt</h4>
+                        <p>First local protein coffee</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">💰</div>
+                        <h4>Smart Value</h4>
+                        <p>40% cheaper than imports</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">🛡️</div>
+                        <h4>Juhayna Trust</h4>
+                        <p>#1 beverage brand</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">📍</div>
+                        <h4>Available Everywhere</h4>
+                        <p>Massive distribution</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <div class="card-icon">😋</div>
+                        <h4>Tastes Amazing</h4>
+                        <p>Not chalky like shakes</p>
+                    </div>
+                </div>
+                <div style="margin-top:30px;">
+                    <h3 style="color:var(--gold); font-size:1.1em; margin-bottom:12px;">Value Proposition</h3>
+                    <p style="font-size:1.3em; font-weight:700; color:white;">
+                        <span style="color:var(--gold);">"Premium Taste + Real Protein + Smart Price"</span>
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">06 / 22</div>
+        </div>
+
+        <!-- SLIDE 7: MARKET OPPORTUNITY -->
+        <div class="slide slide-dark" data-slide="6">
+            <div class="content-wrapper center">
+                <div class="badge">💡 The Opportunity</div>
+                <h2>Market Opportunity in Egypt</h2>
+                <div class="section-divider"></div>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-num">110M+</div>
+                        <div class="stat-text">Population</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">60%</div>
+                        <div class="stat-text">Under 30 Years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">500+</div>
+                        <div class="stat-text">New Gyms (2 years)</div>
+                    </div>
+                   
+                </div>
+                <div class="quote-box" style="max-width:800px; margin:25px auto;">
+                    "The RTD protein coffee market in Egypt is completely empty. Coffee culture is booming, fitness is trending, but there's NO affordable local product. This is a golden opportunity."
+                </div>
+                <div class="two-cols" style="margin-top:25px;">
+                    <div class="card">
+                        <h4>📈 Growing Trends</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>✓ 300% growth in iced coffee consumption</li>
+                            <li>✓ Protein supplement sales up 200%</li>
+                            <li>✓ 40% lactose intolerance rate</li>
+                            <li>✓ Busy lifestyle = convenience demand</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>💰 Market Gap</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>✗ Imported RTD coffee: 100-150 EGP</li>
+                            <li>✗ Café iced latte: 80-90 EGP</li>
+                            <li>✗ Protein shakes: Taste bad</li>
+                            <li>✓ Our solution: 69-79 EGP ✅</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">07 / 22</div>
+        </div>
+
+        <!-- SLIDE 8: INDUSTRY GROWTH -->
+        <div class="slide slide-white" data-slide="7">
+            <div class="content-wrapper">
+                <div class="badge">📊 Market Analysis</div>
+                <h2>RTD Coffee & Protein Drinks Market - Growth Trends</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols">
+                    <div>
+                        <h3 style="font-size:1.1em;">Global Market Growth</h3>
+                        <div class="bar-chart" style="height:220px;">
+                            <div class="bar-item">
+                                <div class="bar" style="height:80px; background:linear-gradient(to top, #3E2723, #5D4037);">
+                                    <span class="bar-value" style="color:var(--primary);">8%</span>
+                                </div>
+                                <span class="bar-label">RTD Coffee<br>CAGR</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height:120px; background:linear-gradient(to top, #FF6F00, #FF8F00);">
+                                    <span class="bar-value" style="color:var(--primary);">12%</span>
+                                </div>
+                                <span class="bar-label">Protein Drinks<br>CAGR</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height:150px; background:linear-gradient(to top, #7CB342, #9CCC65);">
+                                    <span class="bar-value" style="color:var(--primary);">15%</span>
+                                </div>
+                                <span class="bar-label">Plant-Based<br>CAGR</span>
+                            </div>
+                        </div>
+                        <p style="font-size:0.85em; color:var(--text-gray); text-align:center; margin-top:10px;">
+                            <strong>Source:</strong> Grand View Research, 2024
+                        </p>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1.1em;">Egyptian Market Projections</h3>
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Market Size</th>
+                                    <th>Growth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>50M EGP</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>2025</td>
+                                    <td>120M EGP</td>
+                                    <td>+140%</td>
+                                </tr>
+                                <tr style="background:#E8F5E9;">
+                                    <td><strong>2026</strong></td>
+                                    <td><strong>250M EGP</strong></td>
+                                    <td><strong>+108%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>2027</td>
+                                    <td>450M EGP</td>
+                                    <td>+80%</td>
+                                </tr>
+                                <tr>
+                                    <td>2028</td>
+                                    <td>750M EGP</td>
+                                    <td>+67%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="quote-box" style="margin-top:15px; font-size:0.85em;">
+                            <strong>Market Insight:</strong> The protein RTD coffee segment is expected to grow from virtually zero to 750M EGP by 2028, driven by fitness trends and busy lifestyles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">08 / 22</div>
+        </div>
+
+        <!-- SLIDE 9: COMPETITION WITH UPDATED PRICING -->
+        <div class="slide slide-white" data-slide="8">
+            <div class="content-wrapper">
+                <div class="badge">🏆 Competition</div>
+                <h2>Competitive Landscape & Positioning</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols-60-40">
+                    <div>
+                        <h3 style="font-size:1.05em;">Competitor Analysis</h3>
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>Competitor</th>
+                                    <th>Type</th>
+                                    <th>Protein</th>
+                                    <th>Price</th>
+                                    <th>Availability</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Starbucks Frappuccino</strong></td>
+                                    <td>Imported RTD</td>
+                                    <td>4-6g</td>
+                                    <td>100-120 EGP</td>
+                                    <td>⭐⭐</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Muscle Milk</strong></td>
+                                    <td>Imported Protein</td>
+                                    <td>20g</td>
+                                    <td>150+ EGP</td>
+                                    <td>⭐</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Café Iced Latte</strong></td>
+                                    <td>Fresh (Cafés)</td>
+                                    <td>0-5g</td>
+                                    <td>80-90 EGP</td>
+                                    <td>⭐⭐⭐</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Protein Shakes</strong></td>
+                                    <td>DIY Powder</td>
+                                    <td>20-30g</td>
+                                    <td>40-60 EGP</td>
+                                    <td>⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr style="background:#FFF3E0;">
+                                    <td><strong>🏆 Juhayna Fit Latte</strong></td>
+                                    <td><strong>Local RTD</strong></td>
+                                    <td><strong>15-25g</strong></td>
+                                    <td><strong>69-115 EGP</strong></td>
+                                    <td><strong>⭐⭐⭐⭐⭐</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="quote-box" style="margin-top:12px; font-size:0.85em;">
+                            <strong>💡 Price Positioning:</strong> 69 EGP is 42% cheaper than Starbucks (120 EGP), 14% cheaper than café latte (80 EGP), but premium vs DIY shakes due to superior taste + convenience.
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1em;">Positioning Map</h3>
+                        <div class="position-map">
+                            <span class="axis-label y-label">↑ High Price</span>
+                            <span class="axis-label x-label-left">Low Convenience</span>
+                            <span class="axis-label x-label">High Convenience →</span>
+                            <div class="map-point" style="top:8%; left:55%; background:#E53935; color:white; font-size:0.65em;">Muscle Milk<br>150 EGP</div>
+                            <div class="map-point" style="top:22%; left:65%; background:#1565C0; color:white; font-size:0.65em;">Starbucks<br>120 EGP</div>
+                            <div class="map-point" style="top:38%; left:48%; background:#9E9E9E; color:white; font-size:0.65em;">Café Latte<br>85 EGP</div>
+                            <div class="map-point" style="top:60%; left:25%; background:#6D4C41; color:white; font-size:0.65em;">Protein Shake<br>50 EGP</div>
+                            <div class="map-point" style="top:52%; left:78%; background:var(--primary); color:white; box-shadow: 0 0 0 4px rgba(255,111,0,0.4); font-size:0.75em;">☕ Fit Latte<br>69-79 EGP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">09 / 22</div>
+        </div>
+
+        <!-- SLIDE 10: SWOT -->
+        <div class="slide slide-white" data-slide="9">
+            <div class="content-wrapper">
+                <div class="badge">📊 SWOT Analysis</div>
+                <h2>Strategic Position Assessment</h2>
+                <div class="section-divider"></div>
+                <div class="swot-grid">
+                    <div class="swot-card swot-strengths">
+                        <h4>💪 Strengths</h4>
+                        <ul>
+                            <li>• Juhayna's #1 trusted brand in Egypt</li>
+                            <li>• Massive existing distribution network</li>
+                            <li>• Manufacturing capabilities ready</li>
+                            <li>• First-mover advantage in category</li>
+                            <li>• Premium pricing sustainable (25-30% margin)</li>
+                            <li>• Strong financial backing</li>
+                        </ul>
+                    </div>
+                    <div class="swot-card swot-weaknesses">
+                        <h4>😟 Weaknesses</h4>
+                        <ul>
+                            <li>• No experience in RTD coffee production</li>
+                            <li>• Cold chain logistics requirements</li>
+                            <li>• Coffee taste consistency challenges</li>
+                            <li>• Higher COGS than regular beverages</li>
+                            <li>• Limited shelf life (30-45 days)</li>
+                            <li>• Premium price may limit initial trial</li>
+                        </ul>
+                    </div>
+                    <div class="swot-card swot-opportunities">
+                        <h4>🌟 Opportunities</h4>
+                        <ul>
+                            <li>• Zero quality local competitors</li>
+                            <li>• Booming fitness & wellness culture</li>
+                            <li>• Growing café culture in Egypt</li>
+                            <li>• B2B market (gyms, offices, hotels)</li>
+                            <li>• Export potential to GCC countries</li>
+                            <li>• Price skimming window before competition</li>
+                        </ul>
+                    </div>
+                    <div class="swot-card swot-threats">
+                        <h4>⚡ Threats</h4>
+                        <ul>
+                            <li>• International brands may enter market</li>
+                            <li>• Currency fluctuations (imported beans)</li>
+                            <li>• Seasonal demand variation</li>
+                            <li>• Price-sensitive consumer segment</li>
+                            <li>• Copycats from local competitors</li>
+                            <li>• Economic downturn reducing discretionary spend</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">10 / 22</div>
+        </div>
+
+        <!-- SLIDE 11: PESTEL -->
+        <div class="slide slide-white" data-slide="10">
+            <div class="content-wrapper">
+                <div class="badge">🌍 Macro Environment</div>
+                <h2>PESTEL Analysis</h2>
+                <div class="section-divider"></div>
+                <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card" style="border-left:4px solid #1565C0;">
+                        <div class="card-icon">🏛️</div>
+                        <h4>Political & Legal</h4>
+                        <p>✅ Government supports local manufacturing<br>✅ Tax incentives for factories<br>⚠️ NFSA food safety regulations<br>✅ Halal certification easy</p>
+                    </div>
+                    <div class="card" style="border-left:4px solid #2E7D32;">
+                        <div class="card-icon">💰</div>
+                        <h4>Economic</h4>
+                        <p>⚠️ Inflation & currency devaluation<br>✅ Growing middle class purchasing power<br>✅ Local production = cost advantage<br>⚠️ Imported raw materials cost volatility</p>
+                    </div>
+                    <div class="card" style="border-left:4px solid #E65100;">
+                        <div class="card-icon">👥</div>
+                        <h4>Social & Cultural</h4>
+                        <p>✅ Fitness culture exploding<br>✅ Coffee culture mainstream<br>✅ Health awareness rising<br>✅ On-the-go lifestyle trending</p>
+                    </div>
+                    <div class="card" style="border-left:4px solid #6A1B9A;">
+                        <div class="card-icon">💻</div>
+                        <h4>Technological</h4>
+                        <p>✅ RTD production tech available<br>✅ E-commerce & delivery apps growing<br>✅ Social media marketing effective<br>✅ Digital payment adoption</p>
+                    </div>
+                    <div class="card" style="border-left:4px solid #00838F;">
+                        <div class="card-icon">🌍</div>
+                        <h4>Environmental</h4>
+                        <p>✅ Plant-based = sustainable<br>✅ Lower carbon footprint<br>✅ Recyclable packaging<br>⚠️ Water usage in production</p>
+                    </div>
+                    <div class="card" style="border-left:4px solid #AD1457;">
+                        <div class="card-icon">📊</div>
+                        <h4>Demographic</h4>
+                        <p>✅ 110M+ population<br>✅ 60% under 30 (target!)<br>✅ Urban population growing<br>✅ 40% lactose intolerant</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">11 / 22</div>
+        </div>
+
+        <!-- SLIDE 12: SMART GOALS WITH UPDATED TARGETS -->
+        <div class="slide slide-dark" data-slide="11">
+            <div class="content-wrapper center">
+                <div class="badge">🎯 Marketing Objectives</div>
+                <h2>SMART Goals - 2026</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols" style="margin-top:20px;">
+                    <div class="card" style="background:rgba(255,255,255,0.15); border:2px solid white;">
+                        <h4 style="color:white; font-size:1.15em;">📅 Short-Term Goals (6-12 Months)</h4>
+                        <ul style="list-style:none; padding:0; margin-top:15px;">
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Brand Awareness:</strong><br>
+                                Achieve 30% brand awareness in Cairo & Alexandria by Q4 2026
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Distribution:</strong><br>
+                                Secure 500+ distribution points (gyms, supermarkets, cafés) by Q2 2026
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Sales Volume:</strong><br>
+                                Sell 1.8 million bottles by December 2026
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Revenue:</strong><br>
+                                Generate 130M EGP in revenue by end of Year 1 (avg price 72 EGP)
+                            </li>
+                            <li style="padding:8px 0;">
+                                <strong style="color:var(--gold);">Digital Presence:</strong><br>
+                                Reach 100K social media followers by Q4 2026
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background:rgba(255,255,255,0.15); border:2px solid white;">
+                        <h4 style="color:white; font-size:1.15em;">🚀 Long-Term Goals (2-3 Years)</h4>
+                        <ul style="list-style:none; padding:0; margin-top:15px;">
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Market Leadership:</strong><br>
+                                Capture 25% of RTD protein coffee market by end of 2027
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">National Awareness:</strong><br>
+                                Achieve 60% brand awareness nationally by 2028
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">Expansion:</strong><br>
+                                Expand to 1,500+ distribution points across Egypt by 2028
+                            </li>
+                            <li style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.2);">
+                                <strong style="color:var(--gold);">International:</strong><br>
+                                Launch in Saudi Arabia & UAE markets by Q3 2027
+                            </li>
+                            <li style="padding:8px 0;">
+                                <strong style="color:var(--gold);">Revenue Target:</strong><br>
+                                Reach 200M+ EGP annual revenue by end of 2027
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">12 / 22</div>
+        </div>
+
+        <!-- SLIDE 13: SEGMENTATION -->
+        <div class="slide slide-white" data-slide="12">
+            <div class="content-wrapper">
+                <div class="badge">🎯 Segmentation</div>
+                <h2>Market Segmentation Strategy</h2>
+                <div class="section-divider"></div>
+                <div class="cards-grid" style="grid-template-columns: repeat(4,1fr);">
+                    <div class="card" style="text-align:center; border-top:4px solid #2E7D32;">
+                        <div class="card-icon">📍</div>
+                        <h4>Geographic</h4>
+                        <p>
+                            <span class="tag tag-green">Greater Cairo</span>
+                            <span class="tag tag-green">Alexandria</span>
+                            <span class="tag tag-blue">New Cairo</span>
+                            <span class="tag tag-blue">Sheikh Zayed</span>
+                            <span class="tag tag-orange">North Coast</span>
+                            <span class="tag tag-purple">New Cities</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align:center; border-top:4px solid #1565C0;">
+                        <div class="card-icon">👤</div>
+                        <h4>Demographic</h4>
+                        <p>
+                            <span class="tag tag-blue">Age 18-40</span>
+                            <span class="tag tag-purple">60% Male / 40% Female</span>
+                            <span class="tag tag-orange">Income 10K+ EGP</span>
+                            <span class="tag tag-green">University Educated</span>
+                            <span class="tag tag-blue">Professionals & Students</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align:center; border-top:4px solid #E65100;">
+                        <div class="card-icon">💭</div>
+                        <h4>Psychographic</h4>
+                        <p>
+                            <span class="tag tag-orange">Fitness Enthusiast</span>
+                            <span class="tag tag-green">Health-Conscious</span>
+                            <span class="tag tag-purple">Time-Pressured</span>
+                            <span class="tag tag-blue">Quality-Seeker</span>
+                            <span class="tag tag-green">Early Adopter</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align:center; border-top:4px solid #6A1B9A;">
+                        <div class="card-icon">🛒</div>
+                        <h4>Behavioral</h4>
+                        <p>
+                            <span class="tag tag-purple">Daily Gym-Goer</span>
+                            <span class="tag tag-blue">Coffee Lover</span>
+                            <span class="tag tag-orange">Convenience Buyer</span>
+                            <span class="tag tag-red">Lactose Intolerant</span>
+                            <span class="tag tag-green">Protein Consumer</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">13 / 22</div>
+        </div>
+
+        <!-- SLIDE 14: TARGETING - PERSONAS -->
+        <div class="slide slide-white" data-slide="13">
+            <div class="content-wrapper">
+                <div class="badge">🎯 Targeting</div>
+                <h2>Target Segments - Buyer Personas</h2>
+                <div class="section-divider"></div>
+                <p style="color:var(--text-gray); margin-bottom:15px; font-size:0.95em;">
+                    <strong>Strategy:</strong> Differentiated Marketing - Multiple segments with tailored messaging
+                </p>
+                <div class="cards-grid" style="grid-template-columns: repeat(4,1fr);">
+                    <div class="persona-card">
+                        <div class="persona-avatar" style="background:var(--gradient-orange);">🏋️</div>
+                        <h4>The Gym Warrior</h4>
+                        <div class="persona-type">Primary Target (40%)</div>
+                        <div class="persona-detail"><strong>Age:</strong> 22-35 years</div>
+                        <div class="persona-detail"><strong>Income:</strong> 10K-25K EGP</div>
+                        <div class="persona-detail"><strong>Lifestyle:</strong> Gym 4-6x/week</div>
+                        <div class="persona-detail"><strong>Goal:</strong> Build muscle & stay fit</div>
+                        <div class="persona-detail"><strong>Price Sensitivity:</strong> Low (willing to pay 70-100 EGP)</div>
+                        <div class="persona-quote">"I need protein that tastes good, not chalky shakes"</div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-avatar" style="background:var(--gradient-1);">👔</div>
+                        <h4>Busy Professional</h4>
+                        <div class="persona-type">Primary Target (30%)</div>
+                        <div class="persona-detail"><strong>Age:</strong> 25-40 years</div>
+                        <div class="persona-detail"><strong>Income:</strong> 15K-40K EGP</div>
+                        <div class="persona-detail"><strong>Lifestyle:</strong> Long work hours</div>
+                        <div class="persona-detail"><strong>Goal:</strong> Convenient nutrition</div>
+                        <div class="persona-detail"><strong>Price Sensitivity:</strong> Very Low (80-120 EGP OK)</div>
+                        <div class="persona-quote">"No time for breakfast - I need energy on the go"</div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-avatar" style="background:linear-gradient(135deg, #E91E63, #F06292);">📸</div>
+                        <h4>Health Millennial</h4>
+                        <div class="persona-type">Secondary Target (20%)</div>
+                        <div class="persona-detail"><strong>Age:</strong> 20-32 years</div>
+                        <div class="persona-detail"><strong>Income:</strong> 8K-20K EGP</div>
+                        <div class="persona-detail"><strong>Lifestyle:</strong> Wellness-focused</div>
+                        <div class="persona-detail"><strong>Goal:</strong> Healthy lifestyle</div>
+                        <div class="persona-detail"><strong>Price Sensitivity:</strong> Medium (60-80 EGP sweet spot)</div>
+                        <div class="persona-quote">"I want something healthy that looks good on Instagram"</div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-avatar" style="background:linear-gradient(135deg, #9C27B0, #BA68C8);">🤧</div>
+                        <h4>Lactose-Free Seeker</h4>
+                        <div class="persona-type">Niche Target (10%)</div>
+                        <div class="persona-detail"><strong>Age:</strong> All ages</div>
+                        <div class="persona-detail"><strong>Income:</strong> 8K+ EGP</div>
+                        <div class="persona-detail"><strong>Lifestyle:</strong> Lactose intolerant</div>
+                        <div class="persona-detail"><strong>Goal:</strong> Coffee without pain</div>
+                        <div class="persona-detail"><strong>Price Sensitivity:</strong> Low (values health)</div>
+                        <div class="persona-quote">"I love coffee but regular milk hurts my stomach"</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">14 / 22</div>
+        </div>
+
+        <!-- SLIDE 15: CONSUMER BEHAVIOR -->
+        <div class="slide slide-white" data-slide="14">
+            <div class="content-wrapper center">
+                <div class="badge">🧠 Consumer Behavior</div>
+                <h2>Understanding Our Consumer</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols">
+                    <div>
+                        <h3 style="font-size:1.05em; text-align:center;">Buying Decision Process</h3>
+                        <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;">
+                            <div class="flow-step" style="max-width:100%;">
+                                <h5>1️⃣ Need Recognition</h5>
+                                <p>"I'm tired, need protein, and love coffee"</p>
+                            </div>
+                            <div class="flow-step" style="max-width:100%;">
+                                <h5>2️⃣ Information Search</h5>
+                                <p>"Ask gym friends, check Instagram, Google it"</p>
+                            </div>
+                            <div class="flow-step" style="max-width:100%;">
+                                <h5>3️⃣ Evaluate Alternatives</h5>
+                                <p>"69 EGP vs café (85) vs Starbucks (120) - best value!"</p>
+                            </div>
+                            <div class="flow-step" style="max-width:100%;">
+                                <h5>4️⃣ Purchase Decision</h5>
+                                <p>"Fit Latte wins: tasty + protein + smart price"</p>
+                            </div>
+                            <div class="flow-step" style="max-width:100%; border:2px solid var(--secondary);">
+                                <h5>5️⃣ Post-Purchase</h5>
+                                <p>"Loved it! → Repeat buy + recommend to friends"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1.05em; text-align:center;">Factors Influencing Behavior</h3>
+                        <div class="cards-grid" style="grid-template-columns: 1fr; gap:10px; margin-top:10px;">
+                            <div class="card" style="border-left:4px solid #1565C0;">
+                                <h4>🌍 Cultural</h4>
+                                <p>Rising health culture • Coffee culture mainstream • Upper-middle class values</p>
+                            </div>
+                            <div class="card" style="border-left:4px solid #2E7D32;">
+                                <h4>👥 Social</h4>
+                                <p>Gym community influence • Social media trends • Peer recommendations</p>
+                            </div>
+                            <div class="card" style="border-left:4px solid #E65100;">
+                                <h4>👤 Personal</h4>
+                                <p>Age 18-40 • Active lifestyle • Mid-high income • Education level</p>
+                            </div>
+                            <div class="card" style="border-left:4px solid #6A1B9A;">
+                                <h4>🧠 Psychological</h4>
+                                <p>Health & fitness motivation • Convenience need • Brand trust perception • Value-for-money mindset</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">15 / 22</div>
+        </div>
+
+        <!-- SLIDE 16: B2B MARKET -->
+        <div class="slide slide-dark" data-slide="15">
+            <div class="content-wrapper">
+                <div class="badge">🏢 B2B Market</div>
+                <h2>Business-to-Business Opportunities</h2>
+                <div class="section-divider"></div>
+                <div class="cards-grid" style="grid-template-columns: repeat(3,1fr);">
+                    <div class="card">
+                        <div class="card-icon">🏋️</div>
+                        <h4>Gyms & Fitness Centers</h4>
+                        <p><strong>Target:</strong> 50 gyms in Year 1<br>
+                        <strong>Examples:</strong> Gold's Gym, Fitness First, Body Masters<br>
+                        <strong>B2B Price:</strong> 55 EGP (20% off retail)<br>
+                        <strong>Volume:</strong> 200-500 bottles/month per gym<br>
+                        <strong>Demand:</strong> ⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">☕</div>
+                        <h4>Café Chains</h4>
+                        <p><strong>Target:</strong> 30 premium cafés<br>
+                        <strong>Examples:</strong> Cilantro, TBS, Beano's<br>
+                        <strong>B2B Price:</strong> 58 EGP (16% off retail)<br>
+                        <strong>Volume:</strong> 300-600 bottles/month<br>
+                        <strong>Demand:</strong> ⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🏢</div>
+                        <h4>Corporate Offices</h4>
+                        <p><strong>Target:</strong> 20 major companies<br>
+                        <strong>Examples:</strong> Tech firms, banks, agencies<br>
+                        <strong>B2B Price:</strong> 60 EGP (13% off retail)<br>
+                        <strong>Volume:</strong> 100-300 bottles/month<br>
+                        <strong>Demand:</strong> ⭐⭐⭐</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🛒</div>
+                        <h4>Supermarket Chains</h4>
+                        <p><strong>Target:</strong> 200 stores<br>
+                        <strong>Examples:</strong> Carrefour, Spinneys, Metro<br>
+                        <strong>Retail Price:</strong> 69-79 EGP (standard margin)<br>
+                        <strong>Volume:</strong> High turnover<br>
+                        <strong>Demand:</strong> ⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⛽</div>
+                        <h4>Gas Stations</h4>
+                        <p><strong>Target:</strong> 100 stations<br>
+                        <strong>Examples:</strong> Wataniya, MISR Petroleum<br>
+                        <strong>Retail Price:</strong> 69-79 EGP<br>
+                        <strong>Volume:</strong> Medium<br>
+                        <strong>Demand:</strong> ⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🏨</div>
+                        <h4>Hotels & Resorts</h4>
+                        <p><strong>Target:</strong> 15 hotels<br>
+                        <strong>Examples:</strong> Marriott, Hilton<br>
+                        <strong>B2B Price:</strong> 60-65 EGP<br>
+                        <strong>Volume:</strong> Low-Medium<br>
+                        <strong>Demand:</strong> ⭐⭐⭐</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">16 / 22</div>
+        </div>
+
+        <!-- SLIDE 17: MARKETING MIX - PRODUCT -->
+        <div class="slide slide-white" data-slide="16">
+            <div class="content-wrapper">
+                <div class="badge">📦 Marketing Mix - Product</div>
+                <h2>Product Strategy & Branding</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols">
+                    <div>
+                        <h3 style="font-size:1.05em;">Three Levels of Product</h3>
+                        <div class="cards-grid" style="grid-template-columns:1fr; gap:10px;">
+                            <div class="card" style="border-left:4px solid #FF6F00;">
+                                <h4>🎯 Core Benefit</h4>
+                                <p>• Convenient protein nutrition<br>• Great coffee taste<br>• Energy boost<br>• Muscle recovery</p>
+                            </div>
+                            <div class="card" style="border-left:4px solid #3E2723;">
+                                <h4>📦 Actual Product</h4>
+                                <p>• Brand: Juhayna Fit Latte<br>• Features: 15-25g protein, plant-based<br>• Design: Premium PET bottle<br>• Variants: 5 flavors<br>• Quality: Juhayna standard</p>
+                            </div>
+                            <div class="card" style="border-left:4px solid #7CB342;">
+                                <h4>⭐ Augmented Product</h4>
+                                <p>• QR code → workout videos<br>• Loyalty program (collect & win)<br>• Nutrition consultation hotline<br>• Recipe ideas on social media<br>• Free delivery for bulk orders</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1.05em;">Brand Strategy</h3>
+                        <div class="card" style="margin-bottom:12px; border-top:3px solid var(--secondary);">
+                            <h4>🏷️ Brand Extension</h4>
+                            <p>Leveraging <strong>Juhayna</strong> (trusted parent brand) + adding <strong>"Fit Latte"</strong> sub-brand for new category</p>
+                        </div>
+                        <div class="card" style="margin-bottom:12px;">
+                            <h4>🎨 Brand Identity</h4>
+                            <p>
+                                <strong>Name:</strong> Juhayna Fit Latte<br>
+                                <strong>Logo:</strong> Juhayna logo + coffee cup + muscle icon 💪☕<br>
+                                <strong>Tagline:</strong> <span style="color:var(--secondary); font-weight:700;">"Fuel Your Day, The Delicious Way"</span><br>
+                                <strong>Colors:</strong>
+                                <span style="display:inline-block;width:18px;height:18px;background:#3E2723;border-radius:50%;vertical-align:middle;"></span>
+                                <span style="display:inline-block;width:18px;height:18px;background:#FF6F00;border-radius:50%;vertical-align:middle;"></span>
+                                <span style="display:inline-block;width:18px;height:18px;background:#7CB342;border-radius:50%;vertical-align:middle;"></span>
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h4>📏 Package Sizes & Pricing</h4>
+                            <p>
+                                <span class="tag tag-orange">330ml — 69-79 EGP (Retail)</span>
+                                <span class="tag tag-blue">500ml — 115 EGP (Pro)</span>
+                                <span class="tag tag-purple">5L — B2B Only</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">17 / 22</div>
+        </div>
+
+        <!-- SLIDE 18: MARKETING MIX - PRICE (DETAILED) -->
+        <div class="slide slide-white" data-slide="17">
+            <div class="content-wrapper">
+                <div class="badge">💰 Marketing Mix - Pricing Strategy</div>
+                <h2>Price Skimming Strategy - Detailed Breakdown</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols">
+                    <div>
+                        <h3 style="font-size:1.05em;">🎯 Pricing Philosophy</h3>
+                        <div class="card" style="border-top:4px solid #FF6F00; margin-bottom:15px;">
+                            <h4>Price Skimming Strategy</h4>
+                            <p><strong>Rationale:</strong><br>
+                            • No local competition = pricing power<br>
+                            • Premium positioning builds brand equity<br>
+                            • Early adopters willing to pay more<br>
+                            • Maximize margins during exclusivity window<br>
+                            • Reduce price later to capture mass market</p>
+                        </div>
+                        <h3 style="font-size:1em; margin-top:15px;">Price Evolution Timeline</h3>
+                        <table class="styled-table" style="font-size:0.8em;">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Classic</th>
+                                    <th>Premium</th>
+                                    <th>Strategy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background:#FFF3E0;">
+                                    <td><strong>Launch (M1-6)</strong></td>
+                                    <td><strong>69 EGP</strong></td>
+                                    <td><strong>79 EGP</strong></td>
+                                    <td>Premium intro</td>
+                                </tr>
+                                <tr>
+                                    <td>Growth (M7-12)</td>
+                                    <td>65 EGP</td>
+                                    <td>75 EGP</td>
+                                    <td>Volume push</td>
+                                </tr>
+                                <tr>
+                                    <td>Year 2+</td>
+                                    <td>59-62 EGP</td>
+                                    <td>69-72 EGP</td>
+                                    <td>Mass market</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1.05em;">📊 Unit Economics (69 EGP)</h3>
+                        <div class="bar-chart" style="height:200px;">
+                            <div class="bar-item">
+                                <div class="bar" style="height:145px; background:linear-gradient(to top, #C62828, #E57373);">
+                                    <span class="bar-value" style="color:#C62828;">30</span>
+                                </div>
+                                <span class="bar-label">COGS<br>(EGP)</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height:50px; background:linear-gradient(to top, #F57C00, #FFB74D);">
+                                    <span class="bar-value" style="color:#E65100;">10</span>
+                                </div>
+                                <span class="bar-label">Distribution<br>(EGP)</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height:75px; background:linear-gradient(to top, #1976D2, #64B5F6);">
+                                    <span class="bar-value" style="color:#1565C0;">15</span>
+                                </div>
+                                <span class="bar-label">Retail<br>Margin</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height:70px; background:linear-gradient(to top, #388E3C, #81C784);">
+                                    <span class="bar-value" style="color:#2E7D32;">14</span>
+                                </div>
+                                <span class="bar-label">Juhayna<br>Net</span>
+                            </div>
+                        </div>
+                        <div class="card" style="margin-top:10px;">
+                            <h4>💡 Profitability Analysis</h4>
+                            <p style="font-size:0.85em;">
+                                <strong>Retail Price:</strong> 69 EGP<br>
+                                <strong>Total Costs:</strong> 40 EGP (COGS + Distribution)<br>
+                                <strong>Retail Margin:</strong> 15 EGP (22%)<br>
+                                <strong>Juhayna Net:</strong> 14 EGP per bottle (20% margin) ✅<br>
+                                <strong>Break-even:</strong> 1.3M bottles in Year 1
+                            </p>
+                        </div>
+                        <h3 style="font-size:1em; margin-top:12px;">🏢 B2B Wholesale Pricing</h3>
+                        <div class="card">
+                            <p style="font-size:0.82em;">
+                                • <strong>Gyms (200+ btl/mo):</strong> 55 EGP (-20%)<br>
+                                • <strong>Cafés:</strong> 58 EGP (-16%)<br>
+                                • <strong>Offices:</strong> 60 EGP (-13%)<br>
+                                • <strong>Supermarkets:</strong> Standard retail margin
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-box" style="margin-top:15px; font-size:0.88em;">
+                    <strong>🎯 Competitive Positioning:</strong> At 69 EGP, Fit Latte is 42% cheaper than Starbucks Frappuccino (120 EGP), 14% cheaper than café iced latte (80 EGP), yet perceived as premium vs DIY protein shakes due to superior convenience and taste. This creates the perfect "value premium" sweet spot.
+                </div>
+            </div>
+            <div class="slide-number">18 / 22</div>
+        </div>
+
+        <!-- SLIDE 19: MARKETING MIX - PLACE & PROMOTION -->
+        <div class="slide slide-coffee" data-slide="18">
+            <div class="content-wrapper">
+                <div class="badge">📍 Marketing Mix - Place & Promotion</div>
+                <h2>Distribution & Promotional Strategy</h2>
+                <div class="section-divider"></div>
+                <div class="two-cols">
+                    <div>
+                        <h3 style="color:var(--gold); font-size:1.05em;">📍 Place (Distribution)</h3>
+                        <div class="card" style="margin-bottom:12px;">
+                            <h4>🎯 Distribution Strategy</h4>
+                            <p><strong>Approach:</strong> Selective → Intensive<br>
+                            <strong>Year 1 Target:</strong> 500+ points of sale</p>
+                        </div>
+                        <div class="cards-grid" style="grid-template-columns:1fr; gap:8px;">
+                            <div class="card">
+                                <h4>Phase 1 (Months 1-3)</h4>
+                                <p>• 50 premium gyms<br>• 30 high-end cafés<br>• 20 corporate offices<br>• Online: Juhayna store + delivery apps</p>
+                            </div>
+                            <div class="card">
+                                <h4>Phase 2 (Months 4-12)</h4>
+                                <p>• 200 supermarkets (Carrefour, Metro)<br>• 100 gas stations<br>• 150 mini markets<br>• E-commerce expansion</p>
+                            </div>
+                        </div>
+                        <div class="quote-box" style="margin-top:12px; font-size:0.85em;">
+                            <strong>Competitive Advantage:</strong> Juhayna's existing 50,000+ distribution points nationwide
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color:var(--gold); font-size:1.05em;">📢 Promotion (IMC)</h3>
+                        <div class="cards-grid" style="grid-template-columns:1fr; gap:8px;">
+                            <div class="card">
+                                <h4>💻 Digital Marketing (60%)</h4>
+                                <p>• Social media ads (FB, IG, TikTok)<br>• Influencer partnerships (fitness & lifestyle)<br>• Google Search & YouTube ads<br>• User-generated content campaigns</p>
+                            </div>
+                            <div class="card">
+                                <h4>📺 Traditional Media (25%)</h4>
+                                <p>• TV spots during sports programs<br>• Radio ads on music stations<br>• Outdoor billboards near gyms<br>• Metro station ads</p>
+                            </div>
+                            <div class="card">
+                                <h4>🎉 Experiential (10%)</h4>
+                                <p>• Free sampling at 50 gyms<br>• Marathon & sports event sponsorships<br>• University campus activations<br>• Pop-up tasting stands</p>
+                            </div>
+                            <div class="card">
+                                <h4>🎁 Sales Promotion (5%)</h4>
+                                <p>• Launch Offer: First bottle 55 EGP<br>• Loyalty: Collect 10 → Get 1 free<br>• Gym membership giveaways<br>• Bundle deals with Juhayna products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">19 / 22</div>
+        </div>
+
+        <!-- SLIDE 20: DIGITAL MARKETING PLAN -->
+        <div class="slide slide-dark" data-slide="19">
+            <div class="content-wrapper center">
+                <div class="badge">📱 Digital Marketing Plan</div>
+                <h2>Digital-First Marketing Strategy</h2>
+                <div class="section-divider"></div>
+                <div class="stat-row" style="margin-bottom:20px;">
+                    <div class="stat-box">
+                        <div class="stat-num">60%</div>
+                        <div class="stat-text">Marketing Budget</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">100K</div>
+                        <div class="stat-text">Target Followers (Year 1)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">5M</div>
+                        <div class="stat-text">Monthly Impressions</div>
+                    </div>
+                </div>
+                <div class="cards-grid" style="grid-template-columns: repeat(3,1fr);">
+                    <div class="card">
+                        <div class="card-icon">📱</div>
+                        <h4>Social Media Strategy</h4>
+                        <p><strong>Platforms:</strong> Instagram (primary), TikTok, Facebook, YouTube<br>
+                        <strong>Content:</strong><br>
+                        • Pre/post-workout routines<br>
+                        • Nutrition tips & recipes<br>
+                        • User testimonials<br>
+                        • Behind-the-scenes production<br>
+                        <strong>Frequency:</strong> 5 posts/week<br>
+                        <strong>Budget:</strong> 2M EGP/year</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⭐</div>
+                        <h4>Influencer Marketing</h4>
+                        <p><strong>Macro Influencers (5-10):</strong><br>
+                        • Fitness trainers (500K+ followers)<br>
+                        • Lifestyle bloggers<br>
+                        • Athletes & sports personalities<br>
+                        <strong>Micro Influencers (30-50):</strong><br>
+                        • Gym coaches (20-100K followers)<br>
+                        • Nutritionists<br>
+                        • Coffee enthusiasts<br>
+                        <strong>Budget:</strong> 1.5M EGP/year</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h4>Paid Digital Ads</h4>
+                        <p><strong>Facebook/Instagram Ads:</strong><br>
+                        • Target: Age 18-40, fitness interest<br>
+                        • Objective: Awareness + Conversion<br>
+                        <strong>Google Ads:</strong><br>
+                        • Search: "protein coffee Egypt"<br>
+                        • Display: Fitness websites<br>
+                        <strong>YouTube:</strong><br>
+                        • Pre-roll ads on fitness content<br>
+                        <strong>Budget:</strong> 1M EGP/year</p>
+                    </div>
+                </div>
+                <div class="two-cols" style="margin-top:20px;">
+                    <div class="card" style="background:rgba(255,255,255,0.15); border:2px solid white;">
+                        <h4 style="color:white;">📊 Digital KPIs (Year 1)</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li style="padding:6px 0;">✓ 100K Instagram followers</li>
+                            <li style="padding:6px 0;">✓ 50K TikTok followers</li>
+                            <li style="padding:6px 0;">✓ 5M total monthly impressions</li>
+                            <li style="padding:6px 0;">✓ 3% engagement rate</li>
+                            <li style="padding:6px 0;">✓ 10K website visits/month</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background:rgba(255,255,255,0.15); border:2px solid white;">
+                        <h4 style="color:white;">💡 Campaign Ideas</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li style="padding:6px 0;">🎥 #MyFitLatteMoment challenge</li>
+                            <li style="padding:6px 0;">💪 "30-Day Protein Challenge"</li>
+                            <li style="padding:6px 0;">📸 User-generated content rewards</li>
+                            <li style="padding:6px 0;">🏆 Monthly fitness transformation contest</li>
+                            <li style="padding:6px 0;">☕ "Coffee vs Protein" myth-busting series</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">20 / 22</div>
+        </div>
+
+        <!-- SLIDE 21: TIMELINE & BUDGET (UPDATED) -->
+        <div class="slide slide-white" data-slide="20">
+            <div class="content-wrapper">
+                <div class="badge">📅 Implementation</div>
+                <h2>Launch Timeline & Budget Allocation</h2>
+                <div class="section-divider"></div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">1</div>
+                        <h5>Research & Dev</h5>
+                        <p>Months 1-3<br>Product formulation<br>Taste testing</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">2</div>
+                        <h5>Production Setup</h5>
+                        <p>Months 4-5<br>Manufacturing line<br>Packaging design</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">3</div>
+                        <h5>Soft Launch</h5>
+                        <p>Month 6<br>10 gyms pilot<br>Gather feedback</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">4</div>
+                        <h5>Full Launch</h5>
+                        <p>Months 7-8<br>National campaign<br>500 POSs</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">5</div>
+                        <h5>Scale & Expand</h5>
+                        <p>Months 9-12<br>New flavors<br>Market expansion</p>
+                    </div>
+                </div>
+                <div style="margin-top:35px;">
+                    <h3 style="font-size:1.1em; margin-bottom:12px;">💰 Budget Allocation (Year 1)</h3>
+                    <div class="bar-chart" style="height:200px;">
+                        <div class="bar-item">
+                            <div class="bar" style="height:30px; background:var(--secondary);">
+                                <span class="bar-value">1.5M</span>
+                            </div>
+                            <span class="bar-label">R&D</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar" style="height:120px; background:var(--primary);">
+                                <span class="bar-value">12M</span>
+                            </div>
+                            <span class="bar-label">Production</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar" style="height:25px; background:var(--gold);">
+                                <span class="bar-value">1M</span>
+                            </div>
+                            <span class="bar-label">Packaging</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar" style="height:180px; background:#E65100;">
+                                <span class="bar-value">18M</span>
+                            </div>
+                            <span class="bar-label">Marketing</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar" style="height:60px; background:#1565C0;">
+                                <span class="bar-value">5M</span>
+                            </div>
+                            <span class="bar-label">Distribution</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar" style="height:20px; background:#7CB342;">
+                                <span class="bar-value">0.75M</span>
+                            </div>
+                            <span class="bar-label">Misc.</span>
+                        </div>
+                    </div>
+                    <p style="text-align:center; font-weight:700; color:var(--primary); font-size:1.3em; margin-top:15px;">
+                        Total Investment: <span style="color:var(--secondary);">38.25 Million EGP</span>
+                    </p>
+                    <div class="two-cols" style="margin-top:20px;">
+                        <div class="card" style="border-left:4px solid #2E7D32;">
+                            <h4>📈 Revenue Projections (Year 1)</h4>
+                            <p>
+                                <strong>Units Sold:</strong> 1.8M bottles<br>
+                                <strong>Average Price:</strong> 72 EGP<br>
+                                <strong>Total Revenue:</strong> 130M EGP<br>
+                                <strong>Gross Profit:</strong> 65M EGP (50%)<br>
+                                <strong>Net Profit:</strong> ~32M EGP (25%)
+                            </p>
+                        </div>
+                        <div class="card" style="border-left:4px solid #FF6F00;">
+                            <h4>🎯 Financial KPIs</h4>
+                            <p>
+                                <strong>ROI:</strong> 84% in Year 1<br>
+                                <strong>Break-even:</strong> 1.3M bottles<br>
+                                <strong>Payback Period:</strong> 14 months<br>
+                                <strong>Year 2 Target:</strong> 200M EGP revenue
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">21 / 22</div>
+        </div>
+
+        <!-- SLIDE 22: CONCLUSION (UPDATED) -->
+        <div class="slide slide-title-bg" data-slide="21">
+            <div class="content-wrapper center">
+                <div class="badge">🏁 Conclusion</div>
+                <h2>Final Recommendations & Success Metrics</h2>
+                <div class="section-divider"></div>
+                <div class="kpi-grid" style="margin-bottom:25px;">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📢</div>
+                        <div class="kpi-value">30%</div>
+                        <div class="kpi-label">Brand Awareness (Year 1)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🛒</div>
+                        <div class="kpi-value">1.8M</div>
+                        <div class="kpi-label">Bottles Sold (Year 1)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-value">130M</div>
+                        <div class="kpi-label">Revenue EGP (Year 1)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📈</div>
+                        <div class="kpi-value">84%</div>
+                        <div class="kpi-label">ROI Year 1</div>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.1); border-radius:16px; padding:30px; max-width:900px; margin:0 auto 25px; border:1px solid rgba(255,255,255,0.15);">
+                    <h3 style="color:var(--gold); margin-bottom:15px; font-size:1.15em;">🎯 Why This Will Succeed</h3>
+                    <div class="two-cols" style="text-align:left;">
+                        <ul style="list-style:none; padding:0; color:rgba(255,255,255,0.9); font-size:0.92em; line-height:1.9;">
+                            <li>✅ <strong>Blue Ocean Market:</strong> Zero local competition</li>
+                            <li>✅ <strong>Perfect Timing:</strong> Fitness boom + coffee culture</li>
+                            <li>✅ <strong>Smart Pricing:</strong> Premium yet 40% cheaper than imports</li>
+                            <li>✅ <strong>Juhayna Power:</strong> Brand trust + distribution</li>
+                        </ul>
+                        <ul style="list-style:none; padding:0; color:rgba(255,255,255,0.9); font-size:0.92em; line-height:1.9;">
+                            <li>✅ <strong>Clear Target:</strong> Well-defined personas willing to pay</li>
+                            <li>✅ <strong>Product Innovation:</strong> Protein + taste + convenience</li>
+                            <li>✅ <strong>Digital-First:</strong> Reaching young consumers effectively</li>
+                            <li>✅ <strong>Sustainable Margins:</strong> 25% net profit from Day 1</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background:rgba(255,111,0,0.15); border-radius:12px; padding:20px; max-width:700px; margin:0 auto 30px; border-left:4px solid var(--secondary);">
+                    <h3 style="color:var(--gold); font-size:1em; margin-bottom:10px;">💡 Strategic Recommendations</h3>
+                    <ul style="list-style:none; padding:0; text-align:left; color:rgba(255,255,255,0.85); font-size:0.88em;">
+                        <li style="padding:5px 0;">1. <strong>Start premium (69-79 EGP):</strong> Maximize margins during exclusivity window</li>
+                        <li style="padding:5px 0;">2. <strong>Focus on gyms first:</strong> Build credibility with early adopters</li>
+                        <li style="padding:5px 0;">3. <strong>Lead with Classic Espresso:</strong> Hero product before expanding flavors</li>
+                        <li style="padding:5px 0;">4. <strong>Invest in sampling:</strong> Trial = conversion for this category</li>
+                        <li style="padding:5px 0;">5. <strong>Price reduction roadmap:</strong> Gradually lower to 55-65 EGP by Year 2 for mass market</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 style="font-size:2em; margin-bottom:10px;">Thank You ☕💪</h2>
+                    <p style="font-size:1.2em; opacity:0.8;">Questions & Discussion</p>
+                    <p style="font-size:0.9em; margin-top:15px; opacity:0.6;">Juhayna Fit Latte — Fuel Your Day, The Delicious Way</p>
+                </div>
+            </div>
+            <div class="slide-number">22 / 22</div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE NAVIGATION -->
+    <div class="nav-sidebar">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled title="Previous">↑</button>
+        <div class="nav-dots" id="navDots"></div>
+        <span class="slide-counter-vertical" id="slideCounter">01/22</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" title="Next">↓</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const keyboardHint = document.getElementById('keyboardHint');
+        const navDotsContainer = document.getElementById('navDots');
+
+        // Create navigation dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dot.title = `Slide ${i + 1}`;
+            navDotsContainer.appendChild(dot);
+        }
+
+        setTimeout(() => { keyboardHint.classList.add('hidden'); }, 4000);
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index === currentSlide) slide.classList.add('active');
+                else if (index < currentSlide) slide.classList.add('prev');
+            });
+
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+            slideCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')}/${totalSlides}`;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') changeSlide(1);
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') changeSlide(-1);
+            else if (e.key === 'Home') { currentSlide = 0; updateSlide(); }
+            else if (e.key === 'End') { currentSlide = totalSlides - 1; updateSlide(); }
+        });
+
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => { touchStartY = e.changedTouches[0].screenY; });
+        document.addEventListener('touchend', (e) => {
+            const diff = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) changeSlide(1);
+                else changeSlide(-1);
+            }
+        });
+
+        // Mouse wheel support
+        let wheelTimeout;
+        document.addEventListener('wheel', (e) => {
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                if (e.deltaY > 0) changeSlide(1);
+                else if (e.deltaY < 0) changeSlide(-1);
+            }, 100);
+        });
+
+        updateSlide();
+    </script>
+</body>
+</html>
